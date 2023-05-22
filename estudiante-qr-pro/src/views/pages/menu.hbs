@@ -1,0 +1,84 @@
+<style>
+ .botoncomprar{
+    /*color del fondo del boton*/
+    background-color: rgb(135, 67, 16);
+    /*color dee la letra del boton*/
+    color: white;
+    /*ancho del boton*/
+    width: 60%;
+    /*alto del boton*/
+    height: 50px;
+    /*tipo de letra del boton*/
+    font-family: Arial, Helvetica, sans-serif;
+    /*redondear el boton*/
+    border-radius: 12px;
+    /*cuando pasamos el mause por eel boton cambia el color del fondo*/
+ }.botoncomprar:hover{
+    background-color: rgb(163, 82, 20);
+ }input{
+    text-align: center;
+ }div .card{
+  border-radius: 20px;
+ 
+ }h5{
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  
+ }p{
+  font-family: Arial, Helvetica, sans-serif;
+  
+ }
+ div.card-img-top{
+  width: 538px;
+  height: 352px;
+ }
+</style>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Menu</title>
+</head>
+<body>
+
+<section name="" id="" class="p-5">
+    <div class="container">
+        <h1 class="text-center pb-3">Menú</h1>
+        <div class="row">
+            {{#each pers}}
+            <div class="col-4 mt-5">
+             <div class="card" style="width: 20rem ">
+                <img src="{{imagen}}" class="card-img-top" style="height: 270px; " alt="...">
+                <div class="card-body">
+                    <h5 class="card-title" style="font-size: xx-large;">{{name}}</h5>
+                    <p class="card-text" style="font-size: large;">{{presentacion}}</p>
+                    <p class="card-text" style="font-size: large;"> {{description}}</p>
+                    <p class="card-text" style="font-size: large;">Costo: ${{precio}}</p>
+                    
+                    <center>
+                      <form action="/pers/agregar" method="post">
+                      <input type="hidden" value="{{id_producto}}" name="id_producto">
+                      <input type="submit" value="Agregar al Carrito" class="botoncomprar">
+                      </form>
+                    </center>
+                </div>
+              </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>      
+</section>
+
+  
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
