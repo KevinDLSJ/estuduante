@@ -1,0 +1,104 @@
+<style>
+  /*caracteristicas ddel ticket*/
+  .ticket {
+    width: 60%;
+    background-color: #fdfdfd;
+    margin-top: 1rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px 6px rgba(167, 162, 162, 0.945);
+     font-size: 25.5vw;
+  }
+
+  /*caracteristicas de titulo ticket*/
+  h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1rem;
+    font-size: xx-large;
+  }
+
+  /*caracteristicas del contenedor del qr*/
+  .contenedorQR {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+  
+  }
+
+  .btn {
+    background-color: rgb(14, 14, 189);
+    color: white;
+    border-radius: 8px;
+    box-shadow: 1px 1px 1px 1px gray;
+    width: 150px;
+    height: 50px;
+  }
+
+  .btn:hover {
+    background-color: blue;
+    color: white;
+  }td{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+</style>
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+
+</head>
+
+<body>
+  <center>
+    <div class="ticket">
+      <table class="table-fixed w-full">
+        <thead>
+          <h5>Ticket de Compra</h5>
+        </thead>
+  
+        <hr>
+        {{#each ped}}
+        <tr>
+          <!--obtiene la informacion de la base de datos y la imprime en la tabla--->
+          <td class="py-3 px-6 bg-red-500..."></td>
+          <td class="p-3 bg-green-500...">{{name}}</td>
+          <td class="p-3 bg-pink-500...">
+            <!--boton para eliminar producto con metodo delete-->
+          </td>
+          <!--muestra la cantidad de unidades hay en el carrito-->
+          <td class="p-4 px-5 bg-gray-300...">{{cantidad}}</td>
+          <!--muestra el costo del producto-->
+          <td class="p-4 flex bg-blue-500...">{{costo}}</td>
+
+          <td class="p-4 flex bg-blue-500..."></td>
+
+          {{/each}}
+          </tbody>
+       </tr>
+
+      </table>
+      
+
+      <div class="contenedor" >
+        <div id="contenedorQR" class="contenedorQR"></div>
+      </div>
+      <h1>Gracias por tu compra</h1>
+  </center>
+  </div>
+  </tr>
+
+</body>
+<script type="text/javascript">
+  var contenedorQR = document.getElementById('contenedorQR');
+
+  var QR = new QRCode(contenedorQR);
+
+  QR.makeCode('localhost:3000/pedido/{{ped.[0].folio}}');
+
+</script>
+</html >
